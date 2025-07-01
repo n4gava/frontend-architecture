@@ -22,7 +22,7 @@ The goal of this repo is to experiment with and demonstrate best practices, patt
 Clone the repository and install dependencies:
 
 ```bash
-git clone <this-repo-url>
+git clone https://github.com/n4gava/frontend-architecture.git
 cd frontend-architecture
 npm install
 ```
