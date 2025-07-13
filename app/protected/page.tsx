@@ -8,12 +8,14 @@ export default async function ProtectedPage() {
   if (error || !data?.user) {
     redirect("/auth/login");
   }
+  const session = await supabase.auth.getSession();
 
   return (
     <div className="flex-1 w-full flex flex-col gap-12">
       <pre className="text-xs font-mono p-3 rounded border max-h-64 overflow-auto">
         {JSON.stringify(data.user, null, 2)}
       </pre>
+      <div>Token: {session.data.session?.access_token}</div>
     </div>
   );
 }
