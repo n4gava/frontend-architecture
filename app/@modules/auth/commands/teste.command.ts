@@ -1,12 +1,12 @@
 import { ICommandHandler } from "@/app/@core/cqrs/command.interfaces";
-import { injectable } from "inversify";
+import { CommandHandler } from "@/app/@core/cqrs/command-handler.decorator";
 import { Teste } from "./teste";
 
 export class TesteCommand {
-    constructor(public readonly data: string) {}
+    constructor(public readonly data: string) { }
 }
 
-@injectable()
+@CommandHandler(TesteCommand)
 export class TesteCommandHandler implements ICommandHandler<TesteCommand> {
     constructor(public teste: Teste) {
         this.teste = teste;
