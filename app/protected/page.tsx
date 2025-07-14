@@ -1,12 +1,12 @@
 import { redirect } from "next/navigation";
-import { createClient } from "@/lib/supabase/server";
 import { resolve } from "../@core/container/container";
 import { TesteCommand } from "../@modules/auth/commands/teste.command";
-import { CommandBus } from "../@core/cqrs/command.bus";
+import { createSupabaseServerClient } from "@/app/@core/supabase/supabase.server.client";
+import { CommandBus } from "../@core/cqrs/queries/command.bus";
 
 export default async function ProtectedPage() {
   const { commandBus } = resolve(CommandBus);
-  const supabase = await createClient();
+  const supabase = await createSupabaseServerClient();
 
   const valor = await commandBus.execute(new TesteCommand("Hello from protected page!"));
 

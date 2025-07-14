@@ -1,13 +1,13 @@
-import { ICommandHandler } from "@/app/@core/cqrs/command.interfaces";
-import { CommandHandler } from "@/app/@core/cqrs/command-handler.decorator";
+import { IHandler } from "@/app/@core/cqrs/handler.interfaces";
 import { Teste } from "./teste";
+import { CommandHandler } from "@/app/@core/cqrs/command/command-handler.decorator";
 
 export class TesteCommand {
     constructor(public readonly data: string) { }
 }
 
 @CommandHandler(TesteCommand)
-export class TesteCommandHandler implements ICommandHandler<TesteCommand> {
+export class TesteCommandHandler implements IHandler<TesteCommand> {
     constructor(public teste: Teste) {
         this.teste = teste;
     }

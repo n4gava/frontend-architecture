@@ -1,6 +1,8 @@
 import { internalContainer } from "../@core/container/container";
-import { Modules } from "./modules";
+import { ModulesRegister } from "../@core/modules/modules.register";
+import { AuthModule } from "./auth/auth.module";
 
 export const container = internalContainer;
-const modules = new Modules();
-await modules.register(container);
+const modules = [new AuthModule()];
+const modulesRegister = new ModulesRegister(modules);
+await modulesRegister.register(container);

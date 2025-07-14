@@ -3,7 +3,6 @@ import { Container } from "inversify";
 import { TesteCommandHandler } from "./commands/teste.command";
 import { Teste } from "./commands/teste";
 
-
 export class AuthModule implements IModule {
     commands = [TesteCommandHandler];
     queries = [];
