@@ -3,6 +3,7 @@ import { resolve } from "../@core/container/container";
 import { TesteCommand } from "../@modules/auth/commands/teste.command";
 import { createSupabaseServerClient } from "@/app/@core/supabase/supabase.server.client";
 import { CommandBus } from "../@core/cqrs/queries/command.bus";
+import { TesteButton } from "../@modules/auth/components/TesteButton";
 
 export default async function ProtectedPage() {
   const { commandBus } = resolve(CommandBus);
@@ -14,6 +15,8 @@ export default async function ProtectedPage() {
   if (error || !data?.user) {
     redirect("/auth/login");
   }
+
+
   const session = await supabase.auth.getSession();
 
   return (
@@ -23,6 +26,7 @@ export default async function ProtectedPage() {
       </pre>
       <div>Token: {session.data.session?.access_token}</div>
       <div>Valor do comando: {valor}</div>
+      <TesteButton />
     </div>
   );
 }
