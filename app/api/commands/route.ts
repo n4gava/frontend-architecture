@@ -1,5 +1,5 @@
 
-import { CommandBus } from "@/app/@core/cqrs/queries/command.bus";
+import { CommandBus } from "@/app/@core/cqrs/command/command.bus";
 import { TesteCommand } from "@/app/@modules/auth/commands/teste.command";
 import { container } from "@/app/@modules/startup";
 import { NextRequest, NextResponse } from "next/server";

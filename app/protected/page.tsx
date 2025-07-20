@@ -1,8 +1,8 @@
 import { redirect } from "next/navigation";
 import { resolve } from "../@core/container/container";
-import { TesteCommand } from "../@modules/auth/commands/teste.command";
 import { createSupabaseServerClient } from "@/app/@core/supabase/supabase.server.client";
-import { CommandBus } from "../@core/cqrs/queries/command.bus";
+import { CommandBus } from "../@core/cqrs/command/command.bus";
+import { TesteCommand } from "../@modules/auth/commands/teste.command";
 import { TesteButton } from "../@modules/auth/components/TesteButton";
 
 export default async function ProtectedPage() {

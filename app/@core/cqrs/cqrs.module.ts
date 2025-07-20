@@ -1,7 +1,7 @@
 import { Container } from "inversify";
 import { IModule } from "../modules/modules.interfaces";
-import { CommandBus } from "./queries/command.bus";
-import { QueryBus } from "./command/query.bus";
+import { CommandBus } from "./command/command.bus";
+import { QueryBus } from "./queries/query.bus";
 
 export class CqrsModule implements IModule {
     commands = []
